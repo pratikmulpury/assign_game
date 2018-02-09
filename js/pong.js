@@ -10,14 +10,14 @@ var ctx = canvas.getContext('2d');
 var score = 0;
 var hiScore = 0;
 // ball specific variables
-var ballImage = loadImage('../images/ball.gif');
+var ballImage = loadImage('/images/ball.gif');
 var ballSize = 15;
 var x = canvas.width / 2;
 var y = canvas.height / 2;
 var dx = 4;
 var dy = -4;
 // paddle specific variables
-var paddleSound = loadSound('../sounds/pong_beep.wav');
+var paddleSound = loadSound('/sounds/pong_beep.wav');
 var paddleWidth = 10;
 var paddleHeight = 60;
 var paddleX = canvas.width - paddleWidth * 3;

@@ -6,11 +6,11 @@ var FPS = 50;
 // color for everything
 var COLOR = '#0095DD';
 // ball specific values
-var BALL_IMAGE = '/images/ball.gif';
+var BALL_IMAGE = 'images/ball.gif';
 var BALL_SPEED = 4;
 var BALL_SIZE = 15;
 // paddle specific values
-var PADDLE_SOUND = '/sounds/pong_beep.wav';
+var PADDLE_SOUND = 'sounds/pong_beep.wav';
 var PADDLE_SPEED = 5;
 var PADDLE_SIZE = 10;
 

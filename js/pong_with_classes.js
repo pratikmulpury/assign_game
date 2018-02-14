@@ -1,3 +1,4 @@
+// Hello.
 /*
  * "Constants"
  */
@@ -39,10 +40,10 @@ class ResourceManager {
             console.log(url + ' loaded');
             // reset so it is only counted once (just in case)
             this.onload = null;
-        }
+        };
         img.onerror = function () {
             console.log('ERROR: could not load ' + url);
-        }
+        };
         img.src = url;
         this.numImagesLeftToLoad += 1;
         return img;
@@ -57,10 +58,10 @@ class ResourceManager {
             console.log(url + ' loaded');
             // reset so it is only counted once (just in case)
             this.oncanplay = null;
-        }
+        };
         snd.onerror = function () {
             console.log('ERROR: could not load ' + url);
-        }
+        };
         snd.src = url;
         this.numSoundsLeftToLoad += 1;
         return snd;
@@ -223,7 +224,7 @@ class Ball extends Sprite {
     }
 
     draw (ctx) {
-        if (this.image != null) {
+        if (this.image !== null) {
             ctx.drawImage(this.image, this.x, this.y, this.size, this.size);
         }
         else {
@@ -323,7 +324,7 @@ class Game {
             var columns = [];
 
             var color = '';
-            if(i == 0 || i == 1) {
+            if(i === 0 || i === 1) {
                 color = '#FF0000';  // first two rows: red
             } else if (i == 2 || i == 3) {
                 color = "#FFA500";   // next two rows: orange
@@ -411,9 +412,7 @@ class Game {
             this.ball.dx = -this.ball.dx;
         }
         //hit paddle
-        else if (this.ball.nextX > this.paddle.x 
-                 && this.ball.nextX < this.paddle.x + (this.paddle.width-1) 
-                 && this.ball.nextY > this.paddle.y - this.paddle.height) {            
+        else if (this.ball.nextX > this.paddle.x && this.ball.nextX < this.paddle.x + (this.paddle.width-1) && this.ball.nextY > this.paddle.y - this.paddle.height) {            
             this.ball.dy = -this.ball.dy;
             this.paddleSound.play();
         }
@@ -426,7 +425,7 @@ class Game {
         else if (this.ball.nextY<0)
         {
             // if there are no bricks left, then you win the game
-            if(this.brixarray == null || this.brixarray.length == 0) {
+            if(this.brixarray === null || this.brixarray.length === 0) {
                 wingame = true;
             } else {
                 this.ball.dy = -this.ball.dy;
@@ -439,9 +438,7 @@ class Game {
             var columns = this.brixarray[i];
             for(var j = 0; j < columns.length; j++) {    // check each column
                 // use x, y coordinates to check if ball hit this brick
-                if(this.ball.nextX > columns[j]._x 
-                    && this.ball.nextX < columns[j]._x + columns[j].width 
-                    && this.ball.nextY < columns[j]._y + columns[j].height) {
+                if(this.ball.nextX > columns[j]._x && this.ball.nextX < columns[j]._x + columns[j].width && this.ball.nextY < columns[j]._y + columns[j].height) {
                     // if hit a brick
                     this.ball.dy = -this.ball.dy;
                     hitBrick = true;
@@ -489,7 +486,7 @@ document.addEventListener('mousemove', event => input.mouseMoveHandler(event), f
 // NOT IDEAL --- just starts when the everthing is done loading, not necessarily when the user is ready
 var timeIntervalHandler = setInterval(function() 
 {
-    if (losegame == true || wingame == true) {
+    if (losegame === true || wingame === true) {
         // end the game
         timeIntervalHandler = clearInterval(timeIntervalHandler);
 
@@ -503,14 +500,14 @@ var timeIntervalHandler = setInterval(function()
     }
 
     // start the game
-    if(startgame == true)
+    if(startgame === true)
     {
         game.loop();
     } 
     else
     {
-        canvas2= document.getElementById('gameCanvas');   
-        this.ctx2 = this.canvas2.getContext('2d');     
+        var canvas2 = document.getElementById('gameCanvas');   
+        var ctx2 = this.canvas2.getContext('2d');     
         ctx2.font = '16px Arial';
         ctx2.fillStyle = "#0A0A0A";
         ctx2.fillText("Press the Spacebar to Start the Game", canvas2.width/4 , canvas2.height / 2);
